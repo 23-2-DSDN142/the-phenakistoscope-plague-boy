@@ -1,7 +1,7 @@
 const SLICE_COUNT = 10;
 
 function setup_pScope(pScope){
-  pScope.output_mode(ANIMATED_DISK);
+  pScope.output_mode(STATIC_DISK);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(true);
   pScope.set_direction(CCW);
@@ -25,11 +25,6 @@ function faces(x, y, animation, pScope){
   
   scale(animation.frame*2);
 
-  ellipse(0,0,50,50); // draw head
-  fill(30);
-  ellipse(-10,-10,10,10); //draw eye
-  ellipse(10,-10,10,10); // draw eye
-  arc(0,10,20,10,0,180); // draw mouth
 
 }
 
@@ -43,7 +38,12 @@ function squares(x, y, animation, pScope){
   fill(66, 135, 245)
   arc(x,y,800,800,backgroundArcStart,backgroundArcEnd); // draws "pizza slice" in the background
 
+
+
+
   fill(255)
   rect(-10,-300-animation.wave()*50,20,20) // .wave is a cosine wave btw
+  pScope.load_image("Spiral" , "png")
+  pScope.draw_image("Spiral",10,100)
 
 }
