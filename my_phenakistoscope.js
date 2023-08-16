@@ -38,12 +38,10 @@ function squares(x, y, animation, pScope){
   fill(66, 135, 245)
   arc(x,y,800,800,backgroundArcStart,backgroundArcEnd); // draws "pizza slice" in the background
 
-
-
-
   fill(255)
   rect(-10,-300-animation.wave()*50,20,20) // .wave is a cosine wave btw
-  pScope.load_image("Spiral" , "png")
-  pScope.draw_image("Spiral",10,100)
+
+  //pScope.load_image("Spiral" , "png")
+  //pScope.draw_image("Spiral",10,100)
 
 }
