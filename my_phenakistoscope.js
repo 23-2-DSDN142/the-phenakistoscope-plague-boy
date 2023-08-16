@@ -1,11 +1,13 @@
 const SLICE_COUNT = 10;
 
 function setup_pScope(pScope){
-  pScope.output_mode(STATIC_DISK);
+ // pScope.output_mode(STATIC_DISK);
+ pScope.output_mode(ANIMATED_DISK);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(true);
   pScope.set_direction(CCW);
   pScope.set_slice_count(SLICE_COUNT);
+  pScope.load_image("Spiral" , "png")
 }
 
 function setup_layers(pScope){
@@ -41,7 +43,7 @@ function squares(x, y, animation, pScope){
   fill(255)
   rect(-10,-300-animation.wave()*50,20,20) // .wave is a cosine wave btw
 
-  //pScope.load_image("Spiral" , "png")
-  //pScope.draw_image("Spiral",10,100)
+ 
+  pScope.draw_image("Spiral",10,0)
 
 }
