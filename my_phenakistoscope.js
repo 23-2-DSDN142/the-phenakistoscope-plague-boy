@@ -1,8 +1,8 @@
 const SLICE_COUNT = 10;
 
 function setup_pScope(pScope){
- pScope.output_mode(STATIC_DISK);
- //pScope.output_mode(ANIMATED_DISK);
+ //pScope.output_mode(STATIC_DISK);
+ pScope.output_mode(ANIMATED_DISK);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(true);
   pScope.set_direction(CCW);
@@ -35,43 +35,44 @@ function setup_layers(pScope){
 function juice(x, y, animation, pScope){ //the chemicals dropping from the hands to make rocky
   pScope.set_direction(CW);
   scale(animation.frame);
-
+  var line_R = 0;
+  var line_Y = 0;
+  var line_G = 0;
+  var line_B = 0;
 stroke(0)
 strokeWeight(30)
-//line(200,800,20,200)
-//line(75,800,0,200)
-//line(-75,800,0,200)
-//line(-200,800,-20,200)
+//line(325,1200,20,200)
+//line(120,1225,0,200)
+//line(-120,1225,0,200)
+//line(-325,1200,-20,200)
 
 //
 
-push()
+//Red Line
 stroke(245, 66, 66)
 strokeWeight(20)
-line(200,800,110,500)
-line(50,300,-10,100)
-pop()
+line(325,1200,203,line_R+800)
+if (line_R > 100){
+  line_R = 0
+}
 
-push()
+//Yellow Line
 stroke(245, 230, 66)
 strokeWeight(20)
-line(75,800,50,600)
-line(25,400,0,200)
-pop()
+line(105,1100,59,line_Y+700)
+if (line_Y > 100){
+  line_Y = 0
+}
 
-push()
+//Green Line
 stroke(117, 245, 66)
 strokeWeight(20)
-line(-75,800,-63,700)
-line(-38,500,-12,300)
-pop()
+line(-93,1000,-47,line_G+600)
 
-push()
+//Blue Line
 stroke(66, 203, 245)
 strokeWeight(20)
-line(-200,800,-200,799)
-line(-140,600,-80,400)
-pop()
+line(-234,900,-112,line_B+500)
 
 }
 
