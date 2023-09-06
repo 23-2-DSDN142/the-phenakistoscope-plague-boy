@@ -76,10 +76,10 @@ function hands(x, y, animation, pScope){ //the muscle man being built in the cen
 }
 
 function rocky(x, y, animation, pScope){ //hands at the top of the design controlling the chemicals, 'juice'
-scale(animation.frame)*10
+scale(animation.frame)*
 push()
 scale(.5)
-//pScope.draw_image_from_sequence("rocky", 0, 0, animation.frame)
+pScope.draw_image_from_sequence("rocky", 0, 0, animation.frame)
 pop()
 }
 
