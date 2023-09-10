@@ -16,7 +16,7 @@ function setup_layers(pScope){
   new PLayer(null, 220);  //lets us draw the whole circle background, ignoring the boundaries
   
   var layer1 = new PLayer(sky);
-  layer1.mode( SWIRL(20) );
+  layer1.mode( SWIRL(25) );
   layer1.set_boundary( 0, 2000 );
   
   var layer4 = new PLayer(clouds);
@@ -35,15 +35,18 @@ function setup_layers(pScope){
   layer5.mode( RING );
   layer5.set_boundary( 0, 300 );
 }
-function sky(x, y, animation, pScope){; //back most layer, creating a pretty background
-  let StartColour = color(255, 140, 0) //Bright Orange Hue
-  let endColour = color(0, 153, 255) //Bright Blue, inbetween turguoise and dark blue
+function sky(x, y, animation, pScope){; //back most layer, creating a pretty background  
+let StartColour = color(255, 115, 0) //Bright Orange Hue
+let endColour = color(0, 153, 255) //Bright Blue, inbetween turguoise and dark blue
+
+//let StartColour = color(0, 174, 255) //Bright Blue colour
+//let endColour = color(58, 0, 105) //Dark Purple
 
   let animatingColour = lerpColor(StartColour, endColour, animation.frame)
   stroke(255)
   strokeWeight(2)
   fill(animatingColour)
-  ellipse(0,0,900,900)
+  ellipse(0,0,600,600)
 
 }
 
@@ -87,10 +90,10 @@ function clouds(x, y, animation, pScope){ //smaller floating clouds spinning in 
   ellipse(100-animation.frame*150,375-animation.frame*20,85,85)
   ellipse(0-animation.frame*150,375-animation.frame*20,60,60)
   //middle ring of clouds
-  ellipse(250-animation.frame*100,620-animation.frame*20,150,150) //middle cloud
+  ellipse(250-animation.frame*100,630-animation.frame*20,150,150) //middle cloud
   ellipse(370-animation.frame*100,580-animation.frame*20,100,100)
   ellipse(335-animation.frame*100,605-animation.frame*20,135,135)
-  ellipse(165-animation.frame*100,605-animation.frame*20,110,110)
+  ellipse(165-animation.frame*100,630-animation.frame*20,110,110)
  //center cloud
   ellipse(70-animation.frame*100,180-animation.frame*10,150,150)
   ellipse(0-animation.frame*100,180-animation.frame*10,100,100)
@@ -99,9 +102,9 @@ function clouds(x, y, animation, pScope){ //smaller floating clouds spinning in 
 function ext_clouds(x, y, animation, pScope){ //the clouds around the edge of the disk
   stroke(255)
   fill(255)
-  ellipse(0,1050-animation.wave()*50,500,500) //middle cloud
-  ellipse(250,1050-animation.wave()*50,300,300)
-  ellipse(-200,1050-animation.wave()*50,250,250)
+  ellipse(0,1100-animation.wave()*50,500,500) //middle cloud
+  ellipse(250,1100-animation.wave()*50,300,300)
+  ellipse(-200,1100-animation.wave()*50,250,250)
 }
 
 function zeus(x, y, animation, pScope){;
