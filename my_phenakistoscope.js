@@ -53,7 +53,7 @@ let endColour = color(0, 153, 255) //Bright Blue, inbetween turguoise and dark b
 
 function lightning(x, y, animation, pScope){ //the lightning bolts shooting from zeus's hands
   pScope.set_direction(CCW);
-  scale(animation.frame)*20;
+  scale(animation.frame)*30;
 
 push() //lightning bolt design
 strokeWeight(20)
@@ -111,8 +111,8 @@ function center_cloud(x, y, animation, pScope){ //cloud in the center of the des
 function zeus(x, y, animation, pScope){ //drawing of zeus spinning in the center
 //Zeus throwing a bolt animation
 push();
-translate(0, -410);
-scale(.22);
+translate(0, -400);
+scale(.2);
   pScope.draw_image_from_sequence("zeus", 0, 0, animation.frame)
 pop()
 }
