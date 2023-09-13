@@ -9,7 +9,7 @@ function setup_pScope(pScope){
   pScope.draw_layer_boundaries(true);
   pScope.set_direction(CCW);
   pScope.set_slice_count(SLICE_COUNT);
-  pScope.load_image_sequence("zeus" , "png", 15)
+  pScope.load_image_sequence("zeus" , "png", 14)
 }
 
 function setup_layers(pScope){
@@ -32,9 +32,13 @@ function setup_layers(pScope){
   layer4.mode(RING);
   layer4.set_boundary( 300, 1000 );
 
-  var layer5 = new PLayer(zeus);
+  var layer5 = new PLayer(center_cloud);
   layer5.mode( RING );
   layer5.set_boundary( 0, 300 );
+
+  var layer6 = new PLayer(zeus);
+  layer6.mode( RING );
+  layer6.set_boundary( 0, 300 );
 }
 function sky(x, y, animation, pScope){; //back most layer, creating a pretty geometric 'sunrise' background  
 let StartColour = color("#F28729") //Bright Orange Hue
@@ -84,6 +88,7 @@ function clouds(x, y, animation, pScope){ //smaller floating clouds spinning in 
     ellipse(370-animation.frame*100,630-animation.frame*50,100,100)
     ellipse(335-animation.frame*100,655-animation.frame*50,135,135)
     ellipse(165-animation.frame*100,680-animation.frame*50,110,110)
+
 }
 
 function ext_clouds(x, y, animation, pScope){ //the clouds around the edge of the disk
@@ -94,17 +99,20 @@ function ext_clouds(x, y, animation, pScope){ //the clouds around the edge of th
     ellipse(-200,1100-animation.wave()*50,250,250)
 }
 
-function zeus(x, y, animation, pScope){ //drawing of zeus spinning in the center
+function center_cloud(x, y, animation, pScope){ //cloud in the center of the design zeus is standing on
   stroke(255)
   fill(255)
   ellipse(0,0,400,400); //center cloud innermost spot
    //center cloud spinning aspect
-   ellipse(70-animation.frame*100,180-animation.frame*10,150,150)
-   ellipse(0-animation.frame*100,180-animation.frame*10,100,100)
+   ellipse(70-animation.frame*100,180,150,150)
+   ellipse(0-animation.frame*100,180,100,100)
+}
+
+function zeus(x, y, animation, pScope){ //drawing of zeus spinning in the center
 //Zeus throwing a bolt animation
-//push();
-translate(x, y);
-scale(.5);
-  pScope.draw_image_from_sequence("zeus", 100-animation.frame*100, 0, animation.frame)
-//pop()
+push();
+translate(0, -410);
+scale(.22);
+  pScope.draw_image_from_sequence("zeus", 0, 0, animation.frame)
+pop()
 }
