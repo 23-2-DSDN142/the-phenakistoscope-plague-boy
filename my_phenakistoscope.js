@@ -20,17 +20,17 @@ function setup_layers(pScope){
   layer1.mode( SWIRL(25) );
   layer1.set_boundary( 0, 2000 );
 
-  var layer2 = new PLayer(ext_clouds);
+  var layer2 = new PLayer(clouds);
   layer2.mode( RING );
-  layer2.set_boundary( 750, 1000 );
+  layer2.set_boundary( 300, 1500 );
 
-  var layer3 = new PLayer(clouds);
-  layer3.mode( RING );
-  layer3.set_boundary( 300, 1500 );
+  var layer3 = new PLayer(lightning);
+  layer3.mode(RING);
+  layer3.set_boundary( 300, 1000 );
 
-  var layer4 = new PLayer(lightning);
-  layer4.mode(RING);
-  layer4.set_boundary( 300, 1000 );
+  var layer4 = new PLayer(ext_clouds);
+  layer4.mode( RING );
+  layer4.set_boundary( 750, 1000 );
 
   var layer5 = new PLayer(center_cloud);
   layer5.mode( RING );
@@ -42,34 +42,13 @@ function setup_layers(pScope){
 }
 function sky(x, y, animation, pScope){; //back most layer, creating a pretty geometric 'sunrise' background  
 let StartColour = color("#F28729") //Bright Orange Hue
-let endColour = color(0, 153, 255) //Bright Blue, inbetween turguoise and dark blue
+let endColour = color("#0099ff") //Bright Blue, inbetween turguoise and dark blue
   let animatingColour = lerpColor(StartColour, endColour, animation.frame)
   stroke(255)
   strokeWeight(1.5)
   fill(animatingColour)
     ellipse(0,0,600,600) //small circles used to make gradient effect, mimicking a sunrise.
 
-}
-
-function lightning(x, y, animation, pScope){ //the lightning bolts shooting from zeus's hands
-  pScope.set_direction(CCW);
-  scale(animation.frame)*30;
-
-push() //lightning bolt design
-strokeWeight(20)
-stroke(255, 200, 0)
-fill(255, 223, 105)
-  beginShape()
-    vertex(28,1000) //Top left point
-    vertex(-102,1000) //Top Right point
-    vertex(-47,875)
-    vertex(-117,875)
-    vertex(0,600) //Bottom Point of the bolt
-    vertex(-2,800)
-    vertex(68,800)
-    vertex(28,1000)
-  endShape()
-pop()
 }
 
 function clouds(x, y, animation, pScope){ //smaller floating clouds spinning in the design
@@ -90,6 +69,29 @@ function clouds(x, y, animation, pScope){ //smaller floating clouds spinning in 
     ellipse(165-animation.frame*100,680-animation.frame*50,110,110)
 
 }
+
+function lightning(x, y, animation, pScope){ //the lightning bolts shooting from zeus's hands
+  pScope.set_direction(CCW);
+  scale(animation.frame)*30;
+
+push() //lightning bolt design
+strokeWeight(20)
+stroke(255, 200, 0)
+fill(255, 223, 105)
+scale(1.5)
+  beginShape()
+    vertex(28,1000) //Top left point
+    vertex(-102,1000) //Top Right point
+    vertex(-47,875)
+    vertex(-117,875)
+    vertex(0,600) //Bottom Point of the bolt
+    vertex(-2,800)
+    vertex(68,800)
+    vertex(28,1000)
+  endShape()
+pop()
+}
+
 
 function ext_clouds(x, y, animation, pScope){ //the clouds around the edge of the disk
   stroke(255)
