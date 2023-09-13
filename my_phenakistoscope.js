@@ -9,7 +9,7 @@ function setup_pScope(pScope){
   pScope.draw_layer_boundaries(true);
   pScope.set_direction(CCW);
   pScope.set_slice_count(SLICE_COUNT);
-  pScope.load_image_sequence("rocky" , "png", 10)
+  pScope.load_image_sequence("zeus" , "png", 15)
 }
 
 function setup_layers(pScope){
@@ -37,7 +37,7 @@ function setup_layers(pScope){
   layer5.set_boundary( 0, 300 );
 }
 function sky(x, y, animation, pScope){; //back most layer, creating a pretty geometric 'sunrise' background  
-let StartColour = color(255, 115, 0) //Bright Orange Hue
+let StartColour = color("#F28729") //Bright Orange Hue
 let endColour = color(0, 153, 255) //Bright Blue, inbetween turguoise and dark blue
   let animatingColour = lerpColor(StartColour, endColour, animation.frame)
   stroke(255)
@@ -104,7 +104,7 @@ function zeus(x, y, animation, pScope){ //drawing of zeus spinning in the center
 //Zeus throwing a bolt animation
 //push();
 translate(x, y);
-scale(1);
-  //pScope.draw_image_from_sequence("rocky", 0, 0, animation.frame)
+scale(.5);
+  pScope.draw_image_from_sequence("zeus", 100-animation.frame*100, 0, animation.frame)
 //pop()
 }
